@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (selectedSort){
             case POPULAR :
-                call = services.getMovies("popular");
+                call = services.getMovies(MovieDbServices.PATH_POPULAR);
                 break;
             case TOP_RATED :
-                call = services.getMovies("top_rated");
+                call = services.getMovies(MovieDbServices.PATH_TOP_RATED);
                 break;
             default:
-                call = services.getMovies("popular");
+                call = services.getMovies(MovieDbServices.PATH_POPULAR);
         }
 
         call.enqueue(new Callback<MovieResult>() {

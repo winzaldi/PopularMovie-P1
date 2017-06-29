@@ -13,10 +13,11 @@ import retrofit2.http.Path;
 
 public interface MovieDbServices {
 
+    String PATH_POPULAR = "popular";
+    String PATH_TOP_RATED = "top_rated";
 
     @GET("/3/movie/{sort}")
     Call<MovieResult> getMovies(@Path("sort") String order);
-
 
 
 }
