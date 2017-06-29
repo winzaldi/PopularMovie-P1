@@ -73,7 +73,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="@dimen/tv18sp"
                 tools:text="title" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_marginLeft="160dp"
                 android:layout_marginStart="160dp"
                 android:layout_marginTop="8dp"
-                android:textColor="#000"
+                android:textColor="@android:color/black"
                 tools:text="Release Date : " />
 
             <TextView

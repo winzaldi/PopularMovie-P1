@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.learn.android.udacity.udacity_popularmovie.data.Movie;
 import com.squareup.picasso.Picasso;
 
+/**
+ * Created by winzaldi on 6/29/17.
+ */
 public class MovieDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_MOVIE = "movie";

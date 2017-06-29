@@ -18,6 +18,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+/**
+ * Created by winzaldi on 6/29/17.
+ */
 public class MainActivity extends AppCompatActivity {
 
     public static final int POPULAR = 0;
@@ -66,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (selectedSort){
             case POPULAR :
-                call = services.getPopularMovies();
+                call = services.getMovies("popular");
                 break;
             case TOP_RATED :
-                call = services.getTopRatedMovies();
+                call = services.getMovies("top_rated");
                 break;
             default:
-                call = services.getPopularMovies();
+                call = services.getMovies("popular");
         }
 
         call.enqueue(new Callback<MovieResult>() {
