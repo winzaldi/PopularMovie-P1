@@ -1,5 +1,7 @@
 package com.learn.android.udacity.udacity_popularmovie;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -36,34 +38,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_main_movie);
 
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        /**  change count of grid column depend on screen orientation **/
+        Resources res = getResources();
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this, res.getInteger(R.integer.column_portrait)));
+        }
+        else{
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this, res.getInteger(R.integer.column_land)));
+        }
+
         mAdapter = new MoviesAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
-//        List<Movie> movies = new ArrayList<>();
-//
-//        for (int i = 0; i < 25; i++) {
-//            movies.add(new Movie());
-//        }
-//        mAdapter.setMovieList(movies);
+        /** Get Movies from The server */
         getMovies(selectedSort);
 
     }
 
-    //       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
     private void getMovies(int selectedSort) {
 
         MovieDbServices  services = new MovieDbServiceFactory().create();
