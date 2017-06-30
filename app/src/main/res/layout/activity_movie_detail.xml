@@ -87,6 +87,8 @@
                 android:textColor="@android:color/black"
                 tools:text="Release Date : " />
 
+
+
             <TextView
                 android:id="@+id/tv_rating"
                 android:layout_width="wrap_content"
@@ -97,7 +99,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="160dp"
                 android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_star"
+                android:drawableLeft="@mipmap/ic_star_yellow"
                 android:drawablePadding="8dp"
                 android:gravity="right|end|center_vertical"
                 android:textColor="#000"
